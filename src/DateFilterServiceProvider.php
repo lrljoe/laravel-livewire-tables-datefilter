@@ -29,6 +29,10 @@ class DateFilterServiceProvider extends ServiceProvider  implements DeferrablePr
 
     public function register(): void
     {
+        $this->mergeConfigFrom(
+            __DIR__.'/../../../lrljoe/laravel-livewire-tables-datefilter/config/config.php', 'livewire-tables-datefilter'
+        );
+        $this->loadViewsFrom(__DIR__.'/../../../lrljoe/laravel-livewire-tables-datefilter/resources/views', 'livewire-tables-datefilter');
 
     }
 }
