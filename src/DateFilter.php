@@ -17,7 +17,7 @@ class DateFilter extends Filter
 
     protected string $view = 'livewire-tables-datefilter::date-filter';
 
-    protected string $configPath = 'livewire-tables.dateFilter.defaultConfig';
+    protected string $configPath = 'livewire-tables-datefilter.defaultConfig';
 
     public function validate(string $value): string|bool
     {

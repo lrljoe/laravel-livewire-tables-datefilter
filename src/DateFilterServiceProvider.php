@@ -2,22 +2,22 @@
 
 namespace Rappasoft\LaravelLivewireTables\Plugins\Filters\DateFilter;
 
-use Illuminate\Foundation\Console\AboutCommand;
 use Illuminate\Support\ServiceProvider;
-use Livewire\ComponentHookRegistry;
-use Rappasoft\LaravelLivewireTables\Commands\MakeCommand;
-use Rappasoft\LaravelLivewireTables\Features\AutoInjectRappasoftAssets;
-use Rappasoft\LaravelLivewireTables\Mechanisms\RappasoftFrontendAssets;
-use Illuminate\Contracts\Support\DeferrableProvider;
 
-class DateFilterServiceProvider extends ServiceProvider implements DeferrableProvider
+class DateFilterServiceProvider extends ServiceProvider 
 {
     public function boot(): void
     {
-
-        // Load Default Translations
-        $this->loadJsonTranslationsFrom(
-            __DIR__.'/../resources/lang'
+        if ($this->app->runningInConsole()) {
+            if (class_exists(\Illuminate\Foundation\Console\AboutCommand::class) && class_exists(\Composer\InstalledVersions::class)) {
+                \Illuminate\Foundation\Console\AboutCommand::add('Rappasoft Laravel Livewire Tables - Date Filter', [
+                    'Version' => \Composer\InstalledVersions::getPrettyVersion('lrljoe/laravel-livewire-tables-datefilter'),
+                ]);
+            }
+        }
+        
+        $this->mergeConfigFrom(
+            __DIR__.'/../config/config.php', 'livewire-tables-datefilter'
         );
 
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'livewire-tables-datefilter');
@@ -25,13 +25,9 @@ class DateFilterServiceProvider extends ServiceProvider implements DeferrablePro
 
     }
 
-    public function provides(): array
-    {
-        return [DateFilter::class];
-    }
-
 
     public function register(): void
     {
+
     }
 }
