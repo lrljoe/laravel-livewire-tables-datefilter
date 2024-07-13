@@ -1,0 +1,31 @@
+<?php
+
+namespace Rappasoft\LaravelLivewireTables\Plugins\Filters\DateFilter;
+
+use Illuminate\Foundation\Console\AboutCommand;
+use Illuminate\Support\ServiceProvider;
+use Livewire\ComponentHookRegistry;
+use Rappasoft\LaravelLivewireTables\Commands\MakeCommand;
+use Rappasoft\LaravelLivewireTables\Features\AutoInjectRappasoftAssets;
+use Rappasoft\LaravelLivewireTables\Mechanisms\RappasoftFrontendAssets;
+
+class DateFilterServiceProvider extends ServiceProvider
+{
+    public function boot(): void
+    {
+
+        // Load Default Translations
+        $this->loadJsonTranslationsFrom(
+            __DIR__.'/../resources/lang'
+        );
+
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'livewire-tables-datefilter');
+
+
+    }
+
+
+    public function register(): void
+    {
+    }
+}
