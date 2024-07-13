@@ -54,6 +54,13 @@
     "config": {
         "sort-packages": true
     },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Rappasoft\\LaravelLivewireTables\\Plugins\\Filters\\DateFilter\\DateFilterServiceProvider"
+            ]
+        }
+    },
     "minimum-stability": "dev",
     "prefer-stable": true
 }
