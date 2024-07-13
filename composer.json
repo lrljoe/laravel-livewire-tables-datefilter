@@ -23,7 +23,7 @@
         "illuminate/contracts": "^10.0|^11.0",
         "illuminate/support": "^10.0|^11.0",
         "livewire/livewire": "^3.0|dev-main",
-        "rappasoft/laravel-livewire-tables": "^3.0"
+        "rappasoft/laravel-livewire-tables": "*"
     },
     "require-dev": {
         "ext-sqlite3": "*",
