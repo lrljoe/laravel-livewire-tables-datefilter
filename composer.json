@@ -37,12 +37,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Rappasoft\\LaravelLivewireTables\\Plugins\\Filters\\DateFilter": "src"
+            "Rappasoft\\LaravelLivewireTables\\Plugins\\Filters\\DateFilter\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Rappasoft\\LaravelLivewireTables\\Plugins\\Filters\\DateFilter\\Tests": "tests"
+            "Rappasoft\\LaravelLivewireTables\\Plugins\\Filters\\DateFilter\\Tests\\": "tests"
         }
     },
     "scripts": {
