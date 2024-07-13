@@ -11,8 +11,8 @@ trait DateFilterHelpers
     use HasWireables;
     use HasConfig;
     use IsStringFilter;
-    
-    public function getFilterPillValue(string $value): ?string
+
+    public function getFilterPillValue($value): ?string
     {
         if ($this->validate($value)) {
             return DateTime::createFromFormat('Y-m-d', $value)->format($this->getConfig('pillFormat'));
