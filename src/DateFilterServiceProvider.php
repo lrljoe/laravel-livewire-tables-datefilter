@@ -3,9 +3,10 @@
 namespace Rappasoft\LaravelLivewireTables\Plugins\Filters\DateFilter;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\Support\DeferrableProvider;
 
-class DateFilterServiceProvider extends ServiceProvider  implements DeferrableProvider
+class DateFilterServiceProvider extends ServiceProvider implements DeferrableProvider
 {
     public function boot(): void
     {
@@ -16,23 +17,16 @@ class DateFilterServiceProvider extends ServiceProvider  implements DeferrablePr
                 ]);
             }
         }
-        $this->app->singleton(DateFilter::class, function (Application $app) {
-            return new DateFilter();
-        });
+        $this->mergeConfigFrom(
+            __DIR__.'/../config/config.php', 'livewire-tables-datefilter'
+        );
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'livewire-tables-datefilter');
 
     }
 
-    public function provides(): array
-    {
-        return [DateFilter::class];
-    }
 
     public function register(): void
     {
-        $this->mergeConfigFrom(
-            __DIR__.'/../../../lrljoe/laravel-livewire-tables-datefilter/config/config.php', 'livewire-tables-datefilter'
-        );
-        $this->loadViewsFrom(__DIR__.'/../../../lrljoe/laravel-livewire-tables-datefilter/resources/views', 'livewire-tables-datefilter');
 
     }
 }
