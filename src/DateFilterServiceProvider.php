@@ -16,9 +16,16 @@ class DateFilterServiceProvider extends ServiceProvider  implements DeferrablePr
                 ]);
             }
         }
+        $this->app->singleton(DateFilter::class, function (Application $app) {
+            return new DateFilter();
+        });
 
     }
 
+    public function provides(): array
+    {
+        return [DateFilter::class];
+    }
 
     public function register(): void
     {
